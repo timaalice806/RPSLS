@@ -20,7 +20,7 @@ namespace RockPaperSciz
         }
         public override void ChooseGesture()
         {
-            Console.WriteLine("Player 1, choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
+            Console.WriteLine("Choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
             playerChoice = int.Parse(Console.ReadLine());
         }
     }

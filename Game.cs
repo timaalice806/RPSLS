@@ -38,15 +38,13 @@ namespace RockPaperSciz
                 Console.WriteLine();
                 player1 = new Human();
                 player2 = new Computer();
-                player1.ChooseGesture();
-                player2.ChooseGesture();
+            
             }
             else if(userChoice == 2)
             {
                 player1 = new Human();
                 player2 = new Human();
-                player1.ChooseGesture();
-                player2.ChooseGesture();
+               
                 //GameInit();
             }
             else
@@ -55,53 +53,62 @@ namespace RockPaperSciz
                 Console.ReadLine();
                 GameInit();
             }
+            RunGame();
+        }
+        public void RunGame()
+        {
+            while (player1.score < 2 && player2.score < 2)
+            {
+                player1.ChooseGesture();
+                player2.ChooseGesture();
+                CompareGestures();
+            }
         }
         public void CompareGestures()
         {
-            while (player1.score < 2 || player2.score < 2)
-            {
-                Console.WriteLine("Player 1, choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
-                int player1Choice = int.Parse(Console.ReadLine());
-                Console.WriteLine(player1Choice);
-                Console.Clear();
+           
+                //Console.WriteLine("Player 1, choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
+                //int player1.playerChoice = int.Parse(Console.ReadLine());
+                //Console.WriteLine(player1.playerChoice);
+                //Console.Clear();
 
-                Console.WriteLine("Player 2, choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
-                int player2Choice = int.Parse(Console.ReadLine());
-                Console.WriteLine(player2Choice);
+                //Console.WriteLine("Player 2, choose from these following options: \n 1.Rock \n 2.Paper \n 3.Scissors \n 4.Lizard \n 5.Spock");
+                //int player2.playerChoice = int.Parse(Console.ReadLine());
+                //Console.WriteLine(player2.playerChoice);
 
-                Console.WriteLine($"player1: {player1Choice} player2: {player2Choice}");
+                Console.WriteLine($"player1: {player1.playerChoice} player2: {player2.playerChoice}");
                 Console.ReadLine();
 
-                if (player1Choice == player2Choice)
+                if (player1.playerChoice == player2.playerChoice)
                 {
-                    Console.WriteLine("this is a tie please try again");
+                    Console.WriteLine("This is a tie please try again, Press ENTER to continue. ");
                     Console.ReadLine();
                 }
-                else if (player1Choice == 1 && (player2Choice == 3 || player2Choice == 5))
-                {
-                    player1.score++;
-                    Console.WriteLine($"Player one {player1.score} score");
-                    Console.ReadLine();
-                }
-                else if (player1Choice == 3 && (player2Choice == 2 || player2Choice == 5))
+                else if (player1.playerChoice == 1 && (player2.playerChoice == 3 || player2.playerChoice == 5))
                 {
                     player1.score++;
                     Console.WriteLine($"Player one {player1.score} score");
                     Console.ReadLine();
                 }
-                else if (player1Choice == 2 && (player2Choice == 1 || player2Choice == 4))
+                else if (player1.playerChoice == 3 && (player2.playerChoice == 2 || player2.playerChoice == 5))
                 {
                     player1.score++;
                     Console.WriteLine($"Player one {player1.score} score");
                     Console.ReadLine();
                 }
-                else if (player1Choice == 4 && (player2Choice == 3 || player2Choice == 1))
+                else if (player1.playerChoice == 2 && (player2.playerChoice == 1 || player2.playerChoice == 4))
                 {
                     player1.score++;
                     Console.WriteLine($"Player one {player1.score} score");
                     Console.ReadLine();
                 }
-                else if (player1Choice == 5 && (player2Choice == 4 || player2Choice == 2))
+                else if (player1.playerChoice == 4 && (player2.playerChoice == 3 || player2.playerChoice == 1))
+                {
+                    player1.score++;
+                    Console.WriteLine($"Player one {player1.score} score");
+                    Console.ReadLine();
+                }
+                else if (player1.playerChoice == 5 && (player2.playerChoice == 4 || player2.playerChoice == 2))
                 {
                     player1.score++;
                     Console.WriteLine($"Player one {player1.score} score");
@@ -113,7 +120,6 @@ namespace RockPaperSciz
                     Console.WriteLine($"Player two {player2.score} score");
                     Console.ReadLine();
                 }
-            }
         }
         public void DetermineGameWinner ()
         {
