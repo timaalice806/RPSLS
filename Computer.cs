@@ -14,17 +14,14 @@ namespace RockPaperSciz
         //CONSTRUCTOR (COMPUTER DEFAULT SETTINGS)
         public Computer()
         {
-            //gestureChoice = new Random();
-            //opponentName = "Watson";
-            //score = 0;
-            
+           
         }
 
         //MEMBER METHODS (COMPUTER CAN DO)
         int count = 1;
         public override void InitGestureList()
         {
-            gestureList = new List<string>() { "rock", "Paper", "Scissors", "Lizard", "Spock" };
+            gestureList = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
             foreach (string gesture in gestureList)
             {
                 Console.WriteLine(count++ + "." + " " + gesture);
@@ -35,8 +32,6 @@ namespace RockPaperSciz
         {
             Random random = new Random();
             playerChoice = random.Next(1,5);
-
         }
     }
-
 }

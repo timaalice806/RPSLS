@@ -17,9 +17,9 @@ namespace RockPaperSciz
         //CONTRUCTORS (DEFAULT SETTINGS)
         public Player()
         {
-            this.playerName = playerName;
+            
             this.score = 0;
-            this.playerChoice = playerChoice;        
+                 
         }
         //MEMBER METHODS(PLAYER CAN DO)
         public abstract void InitGestureList();
